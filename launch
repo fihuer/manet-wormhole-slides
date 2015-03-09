@@ -1,0 +1,4 @@
+#!/bin/bash
+cd reveal.js
+grunt serve
+cd -

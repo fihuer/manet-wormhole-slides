@@ -1,0 +1,35 @@
+#!/bin/bash
+
+function main {
+    which npm >/dev/null || (echo "Node.JS is not present" && exit 1)
+    which grunt >/dev/null || (echo "Grunt is not present : npm install -g grunt-cli" && exit 1)
+    if [ ! -d "reveal.js" ] || [ "$FORCE" == TRUE ]; then
+	echo "First setup might take a while ..."
+	git clone https://github.com/hakimel/reveal.js.git
+	if [ ! -d "reveal.js/node_modules" ] || [ "$FORCE" == TRUE ]; then
+		echo "Fetching and builing dependencies"
+		cd reveal.js
+		sudo npm install
+		cd -
+	fi
+    fi
+    if [ -e "reveal.js/index.html" ]; then
+	if [ ! -h "reveal.js/index.html" ]; then
+	    rm -Rf reveal.js/index.html
+	    ln -s ../index.html reveal.js/index.html
+	fi
+    else
+	ln -s ../index.html reveal.js/index.html
+    fi
+}
+while getopts ":f" opt; do
+  case $opt in
+    f)
+	  FORCE=TRUE && echo "Will force setup"
+      ;;
+    \?)
+	  FORCE=FALSE
+      ;;
+  esac
+done
+main
