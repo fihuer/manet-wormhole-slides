@@ -14,6 +14,9 @@
            border: none;
            box-shadow: none;
          }
+         .reveal .slide-number{
+           font-size: 35px;
+         }
          </style>
          <!-- Code syntax highlighting -->
          <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -33,9 +36,9 @@
 
 	 <body>
 	   <div class="reveal">
-
              <!-- Any section element inside of this container is displayed as a slide -->
 	     <div class="slides">
+
 		  <section>
 		    <h1>Wormhole Attacks in AdHoc Networks</h1>
 		    <p>
@@ -43,14 +46,17 @@
                     </br></br><small>Y. Hu, A. Perrig, D. Johnson - IEEE</small>
 		    </p>
       </section>
+
 		  <section>
 		      <h1>Un réseau comme on les connait</h1>
           <img class="fragment" src="../images/infNet.png">
 		  </section>
+
       <section>
           <h1>Un réseau AdHoc</h1>
           <img class="fragment" src="../images/adhocNet.jpg">
       </section>
+
 		  <section data-markdown>
 		    <script type="text/template">
 		      ##Les principales différences
@@ -59,6 +65,7 @@
 - Les paquets transitent de noeuds en noeuds <!-- .element: class="fragment" data-fragment-index="3" -->
 		    </script>
 		  </section>
+
       <section data-markdown>
         <script type="text/template">
           ##Ou ça peut s'utiliser ?
@@ -70,6 +77,7 @@
   - Eventuel remplaçant du GPRS, UMTS, etc ...  <!-- .element: class="fragment" data-fragment-index="6" -->
         </script>
       </section>
+
       <section data-markdown>
           <script type="text/template">
             ![Freifunk](http://upload.wikimedia.org/wikipedia/commons/9/9c/Freifunk_logo.gif)
@@ -84,6 +92,7 @@
 ![B.A.T.M.A.N](http://upload.wikimedia.org/wikipedia/commons/9/99/Official_b.a.t.m.a.n._logo.png)<!-- .element: class="fragment" data-fragment-index="4" -->
           </script>
       </section>
+
       <section data-markdown>
         <script type="text/template">
         ##Les Wormholes c'est quoi ?
@@ -95,12 +104,14 @@ C'est lorsque des noeuds "téléportent" des paquets d'un point à un autre du r
 - Out-of-Band transmission <!-- .element: class="fragment" data-fragment-index="2" -->
         </script>
       </section>
+
       <section>
         <h2>Un exemple de wormhole</h2>
         <video controls>
           <source data-src="images/WormHole.mp4" type="video/mp4" />
         </video>
       </section>
+
       <section data-markdown>
         <script type="text/template">
         ###ça fait pas de mal, non ?
@@ -115,6 +126,7 @@ C'est lorsque des noeuds "téléportent" des paquets d'un point à un autre du r
 <!-- .element: class="fragment" data-fragment-index="4" -->**C'est être en position dominante sur le réseau**
         </script>
       </section>
+
       <section data-markdown>
         <script type="text/template">
         ###La problématique
@@ -126,9 +138,83 @@ C'est lorsque des noeuds "téléportent" des paquets d'un point à un autre du r
 
         </script>
       </section>
+
 		  <section data-background="http://i.giphy.com/s93SsWBGdIhGw.gif">
-		    <h2>WormHole!</h2>
-		  </section>
+        <h2>WormHole!</h2>
+      </section>
+
+      <!--II Cas d'application et analyse-->
+      <section data-markdown>
+      	<script type="text/template">
+#Cas d'application et analyse
+      	</script>
+      </section>
+      <!--II-1 Réseau militaire-->
+      <!--II-1-a Schéma-->
+      <section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Le principe <!-- .element: class="fragment" data-fragment-index="1" -->
+<img class="fragment" src="../images/armee1.png">
+      	</script>
+      </section>
+      <section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Le principe
+<img src="../images/armee2.png">
+      	</script>
+      </section>
+      <section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Le principe
+<img src="../images/armee3.png">
+      	</script>
+      </section>
+      <section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Le principe
+<img src="../images/armee4.png">
+      	</script>
+      </section>
+	  <section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Les risques<!-- .element: class="fragment" data-fragment-index="1" -->
+- Interception des communications de part et d'autre du trou de ver<!-- .element: class="fragment" data-fragment-index="2" -->
+- Communications coupées autour des extrémités du trou de verre<!-- .element: class="fragment" data-fragment-index="3" -->
+- Exemple : trou de ver de longueur 2n+1 => les noeuds dans un rayon n autour des extrémités du trou de vers ne peuvent plus communiquer entre eux<!-- .element: class="fragment" data-fragment-index="4" -->
+		</script>
+	</section>
+	<section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Les adversaires<!-- .element: class="fragment" data-fragment-index="1" -->
+- L'armée adverse dans le cadre d'une guerre<!-- .element: class="fragment" data-fragment-index="2" -->
+- Résistants dans le cadre d'une occupation militaire<!-- .element: class="fragment" data-fragment-index="3" -->
+- Toute organisation extérieure au conflit (gouvernement, association...) mais qui a des intérêts sur place (économiques,  idéologiques...)<!-- .element: class="fragment" data-fragment-index="4" -->
+		</script>
+	</section>
+	<section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Les enjeux<!-- .element: class="fragment" data-fragment-index="1" -->
+- Sécurité humaine : pertes, blessés, captures<!-- .element: class="fragment" data-fragment-index="2" -->
+- Enjeux politiques : bouleversement de la situation géopolitque de la zone en fonction du camp attaqué<!-- .element: class="fragment" data-fragment-index="3" -->
+- Enjeux économiques : les opérations militaires sont souvent liées au contrôle de ressources (pétrole, gaz, etc)<!-- .element: class="fragment" data-fragment-index="4" -->
+		</script>
+	</section>
+	<section data-markdown data-transition="none">
+	   	<script type="text/template">
+##Réseau militaire
+###Des exemples de motivation criminologique<!-- .element: class="fragment" data-fragment-index="1" -->
+- Empêcher les soldats de l'armée adverse de communiquer entre eux pour les prendre en embuscade<!-- .element: class="fragment" data-fragment-index="2" -->
+- Intercepter les communications de l'armée adverse pour prévoir leurs prochains mouvement<!-- .element: class="fragment" data-fragment-index="3" -->
+- Pour un acteur extérieur au conflit, intercepter les communications d'une armée et les revendre à son adversaire<!-- .element: class="fragment" data-fragment-index="4" -->
+		</script>
+	</section>
       <section data-markdown>
           <script type="text/template">
             ##Critique des packets leashes
@@ -172,6 +258,7 @@ Wormhole Attacks in Wireless Networks Yih-Chun Hu, Member, IEEE, Adrian Perrig, 
 	     Reveal.initialize({
 	     controls: true,
 	     progress: true,
+       slideNumber: true,
              history: true,
              center: true,
 	     transition: 'slide', // none/fade/slide/convex/concave/zoom
