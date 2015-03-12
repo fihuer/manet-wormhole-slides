@@ -8,7 +8,13 @@
 
          <link rel="stylesheet" href="css/reveal.css">
          <link rel="stylesheet" href="css/theme/black.css" id="theme">
-	 
+         <style>
+         .reveal section  img{
+           background: none;
+           border: none;
+           box-shadow: none;
+         }
+         </style>
          <!-- Code syntax highlighting -->
          <link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -31,24 +37,50 @@
              <!-- Any section element inside of this container is displayed as a slide -->
 	     <div class="slides">
 		  <section>
-		    <h1>Wormhole Attack in Ad-Hoc Networks</h1>
+		    <h1>Wormhole Attacks in AdHoc Networks</h1>
 		    <p>
-                      <small>Paul D. Romain F. & Yann B.</small>
+                      <small>Paul Dib</br> Romain Fihue </br> Yann Boyeldieu</small>
 		    </p>
                   </section>
+		  <section>
+		      <h1>Un réseau comme on les connait</h1>
+          <img class="fragment" src="images/infNet.png">
+		  </section>
+      <section>
+          <h1>Un réseau AdHoc</h1>
+          <img class="fragment" src="images/adhocNet.jpg">
+      </section>
 		  <section data-markdown>
 		    <script type="text/template">
-		      ## Markdown page title 
-A paragraph with some text and a [link](http://hakim.se).
+		      ##Les principales différences
+- Pas de routeur <!-- .element: class="fragment" data-fragment-index="1" -->
+- Chaque noeud applique le protocole de routage en vigueur <!-- .element: class="fragment" data-fragment-index="2" -->
+- Les paquets transitent de noeuds en noeuds <!-- .element: class="fragment" data-fragment-index="3" -->
 		    </script>
 		  </section>
-		  <section data-markdown>
-		    <script type="text/template">
-		      ##Exemple de slide fragmentée en markdown
-- Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-- Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
-		    </script>
-		  </section>
+      <section data-markdown>
+        <script type="text/template">
+          ##Ou ça peut s'utiliser ?
+- Militaires <!-- .element: class="fragment" data-fragment-index="1" -->
+  - Equipements qui communique sans infrastructure <!-- .element: class="fragment" data-fragment-index="2" -->
+- Situations d'urgence <!-- .element: class="fragment" data-fragment-index="3" -->
+  - Si l'infrastructure est indisponible <!-- .element: class="fragment" data-fragment-index="4" -->
+- Personal Area Networks <!-- .element: class="fragment" data-fragment-index="5" -->
+  - Eventuel remplaçant du GPRS, UMTS, etc ...  <!-- .element: class="fragment" data-fragment-index="6" -->
+        </script>
+      </section>
+      <section data-markdown>
+          <script type="text/template">
+            ![Frefunk](http://upload.wikimedia.org/wikipedia/commons/9/9c/Freifunk_logo.gif)
+
+- Initiative Allemande : Open wireless radio networks <!-- .element: class="fragment" data-fragment-index="1" -->
+- Réseau décentralisé (AdHoc) <!-- .element: class="fragment" data-fragment-index="2" -->
+- 9500 noeuds <!-- .element: class="fragment" data-fragment-index="3" -->
+- On créé un protocole de routage <!-- .element: class="fragment" data-fragment-index="4" --> **B.A.T.M.A.N**
+
+![B.A.T.M.A.N](http://upload.wikimedia.org/wikipedia/commons/9/99/Official_b.a.t.m.a.n._logo.png)<!-- .element: class="fragment" data-fragment-index="4" -->
+          </script>
+      </section>
 		  <section data-background="http://i.giphy.com/s93SsWBGdIhGw.gif">
 		    <h2>WormHole!</h2>
 		  </section>
@@ -57,23 +89,23 @@ A paragraph with some text and a [link](http://hakim.se).
 	   <script src="lib/js/head.min.js"></script>
 	   <script src="js/reveal.js"></script>
            <script>
-	     
+
              // Full list of configuration options available at:
-             // https://github.com/hakimel/reveal.js#configuration	                 
+             // https://github.com/hakimel/reveal.js#configuration
 	     Reveal.initialize({
 	     controls: true,
 	     progress: true,
              history: true,
              center: true,
 	     transition: 'slide', // none/fade/slide/convex/concave/zoom
-	     
+
              // Optional reveal.js plugins
              dependencies: [
 	     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 	     { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 	     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 	     { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-	     { src: 'plugin/zoom-js/zoom.js', async: true },
+       { src: 'plugin/zoom-js/zoom.js', async: true },
              { src: 'plugin/notes/notes.js', async: true }
              ]
              });
