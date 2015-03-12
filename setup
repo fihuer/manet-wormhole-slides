@@ -23,6 +23,12 @@ function main {
     else
 	ln -s ../index.html reveal.js/index.html
     fi
+    if [ ! -d "reveal.js/images" ]; then
+        rm -Rf reveal.js/images
+        ln -s ../images reveal.js/images
+    else
+        ln -s ../images reveal.js/images
+    fi
 }
 while getopts ":f" opt; do
   case $opt in
