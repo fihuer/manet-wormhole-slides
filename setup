@@ -5,7 +5,9 @@ function main {
     which grunt >/dev/null || (echo "Grunt is not present : npm install -g grunt-cli" && exit 1)
     if [ ! -d "reveal.js" ] || [ "$FORCE" == TRUE ]; then
 	echo "First setup might take a while ..."
-	git submodule add https://github.com/hakimel/reveal.js reveal.js
+	rm -Rf reveal.js
+	git submodule init
+	git submodule update
 	if [ ! -d "reveal.js/node_modules" ] || [ "$FORCE" == TRUE ]; then
 		echo "Fetching and builing dependencies"
 		cd reveal.js
