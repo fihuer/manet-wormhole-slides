@@ -6,17 +6,21 @@
 
 <title>WormHole attacks in Ad-Hoc Network</title>
 
-<link rel="stylesheet" href="css/reveal.css">
-<link rel="stylesheet" href="css/theme/black.css" id="theme">
-<style>
-.reveal section  img{
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-</style>
-<!-- Code syntax highlighting -->
-<link rel="stylesheet" href="lib/css/zenburn.css">
+
+         <link rel="stylesheet" href="css/reveal.css">
+         <link rel="stylesheet" href="css/theme/black.css" id="theme">
+         <style>
+         .reveal section  img{
+           background: none;
+           border: none;
+           box-shadow: none;
+         }
+         .reveal .slide-number{
+           font-size: 35px;
+         }
+         </style>
+         <!-- Code syntax highlighting -->
+         <link rel="stylesheet" href="lib/css/zenburn.css">
 
 <!-- Printing and PDF exports -->
 <script>
@@ -31,190 +35,295 @@ document.getElementsByTagName('head')[0].appendChild(link);
              <script src="lib/js/html5shiv.js"></script>
          <![endif]-->
 
-<body>
-<div class="reveal">
+	 <body>
+	   <div class="reveal">
+             <!-- Any section element inside of this container is displayed as a slide -->
+	     <div class="slides">
 
-    <!-- Any section element inside of this container is displayed as a slide -->
-    <div class="slides">
-        <section>
-            <h1>Wormhole Attacks in AdHoc Networks</h1>
-            <p>
-            <small>Paul Dib</br> Romain Fihue </br> Yann Boyeldieu</small>
-            </p>
-        </section>
-        <section>
-            <h1>Un réseau comme on les connait</h1>
-            <img class="fragment" src="../images/infNet.png">
-        </section>
-        <section>
-            <h1>Un réseau AdHoc</h1>
-            <img class="fragment" src="../images/adhocNet.jpg">
-        </section>
-        <section data-markdown>
-            <script type="text/template">
-##Les principales différences
+		  <section>
+		    <h1>Wormhole Attacks in AdHoc Networks</h1>
+		    <p>
+                      <small>Paul Dib</br> Romain Fihue </br> Yann Boyeldieu</small>
+                    </br></br><small>Y. Hu, A. Perrig, D. Johnson - IEEE</small>
+		    </p>
+      </section>
+
+		  <section>
+		      <h1>Un réseau comme on les connait</h1>
+          <img class="fragment" src="../images/infNet.png">
+		  </section>
+
+      <section>
+          <h1>Un réseau AdHoc</h1>
+          <img class="fragment" src="../images/adhocNet.jpg">
+      </section>
+
+		  <section data-markdown>
+		    <script type="text/template">
+		      ##Les principales différences
 - Pas de routeur <!-- .element: class="fragment" data-fragment-index="1" -->
 - Chaque noeud applique le protocole de routage en vigueur <!-- .element: class="fragment" data-fragment-index="2" -->
 - Les paquets transitent de noeuds en noeuds <!-- .element: class="fragment" data-fragment-index="3" -->
-            </script>
-        </section>
-        <section data-markdown>
-            <script type="text/template">
-##Ou ça peut s'utiliser ?
+		    </script>
+		  </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ##Ou ça peut s'utiliser ?
 - Militaires <!-- .element: class="fragment" data-fragment-index="1" -->
   - Equipements qui communique sans infrastructure <!-- .element: class="fragment" data-fragment-index="2" -->
 - Situations d'urgence <!-- .element: class="fragment" data-fragment-index="3" -->
   - Si l'infrastructure est indisponible <!-- .element: class="fragment" data-fragment-index="4" -->
 - Personal Area Networks <!-- .element: class="fragment" data-fragment-index="5" -->
   - Eventuel remplaçant du GPRS, UMTS, etc ...  <!-- .element: class="fragment" data-fragment-index="6" -->
-            </script>
-        </section>
-        <section data-markdown>
-            <script type="text/template">
-![Freifunk](http://upload.wikimedia.org/wikipedia/commons/9/9c/Freifunk_logo.gif)
+        </script>
+      </section>
+
+      <section data-markdown>
+          <script type="text/template">
+            ![Freifunk](http://upload.wikimedia.org/wikipedia/commons/9/9c/Freifunk_logo.gif)
 
 - Initiative Allemande : Open wireless radio networks <!-- .element: class="fragment" data-fragment-index="1" -->
 - Réseau décentralisé (AdHoc) <!-- .element: class="fragment" data-fragment-index="2" -->
 - 9500 noeuds <!-- .element: class="fragment" data-fragment-index="3" -->
-- On créé un protocole de routage <!-- .element: class="fragment" data-fragment-index="4" --> **B.A.T.M.A.N**
+- On créé un protocole de routage <!-- .element: class="fragment" data-fragment-index="4" -->
+
+**B.A.T.M.A.N**<!-- .element: class="fragment" data-fragment-index="4" -->
 
 ![B.A.T.M.A.N](http://upload.wikimedia.org/wikipedia/commons/9/99/Official_b.a.t.m.a.n._logo.png)<!-- .element: class="fragment" data-fragment-index="4" -->
             </script>
         </section>
-        <!--II Cas d'application et analyse-->
-        <section data-markdown>
-            <script type="text/template">
-#II - Cas d'application et analyse
-            </script>
-        </section>
-        <!--II-1 Réseau militaire-->
-        <!--II-1-a Schéma-->
-        <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+
+      <section data-markdown>
+        <script type="text/template">
+        ##Les Wormholes c'est quoi ?
+C'est lorsque des noeuds "téléportent" des paquets d'un point à un autre du réseau
+
+####2 méthodes : <!-- .element: class="fragment" data-fragment-index="2" -->
+
+- Encapsulation <!-- .element: class="fragment" data-fragment-index="2" -->
+- Out-of-Band transmission <!-- .element: class="fragment" data-fragment-index="2" -->
+        </script>
+      </section>
+
+      <section>
+        <h2>Un exemple de wormhole</h2>
+        <video controls>
+          <source data-src="images/WormHole.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+        ###ça fait pas de mal, non ?
+<!-- .element: class="fragment" data-fragment-index="1" -->Le WormHole forward les paquets de contrôle
+
+<!-- .element: class="fragment" data-fragment-index="2" -->Le WormHole ~~forward~~ écoute les paquets de données
+
+<!-- .element: class="fragment" data-fragment-index="3" -->_Ou_
+
+<!-- .element: class="fragment" data-fragment-index="3" -->Le WormHole drop les paquets de données ***seulement***
+
+<!-- .element: class="fragment" data-fragment-index="4" -->**C'est être en position dominante sur le réseau**
+        </script>
+      </section>
+
+      <section data-markdown>
+          <script type="text/template">
+        ###La problématique
+<!-- .element: class="fragment" data-fragment-index="1" -->Un wormhole peut
+
+<!-- .element: class="fragment" data-fragment-index="2" -->**accéder aux données qui transitent**
+
+<!-- .element: class="fragment" data-fragment-index="3" -->**détruire un réseau**
+
+          </script>
+      </section>
+
+		  <section data-background="http://i.giphy.com/s93SsWBGdIhGw.gif">
+        <h2>WormHole!</h2>
+      </section>
+
+      <!--II Cas d'application et analyse-->
+      <section data-markdown>
+      	 <script type="text/template">
+#Cas d'application et analyse
+      	 </script>
+      </section>
+      <!--II-1 Réseau militaire-->
+      <!--II-1-a Schéma-->
+
+      <section data-markdown data-transition="none">
+	   	   <script type="text/template">
+##Réseau militaire
 ###Le principe <!-- .element: class="fragment" data-fragment-index="1" -->
 <img class="fragment" src="../images/armee1.png">
-            </script>	
-        </section>
-        <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+      	 </script>
+      </section>
+
+      <section data-markdown data-transition="none">
+	   	    <script type="text/template">
+##Réseau militaire
 ###Le principe
 <img src="../images/armee2.png">
-            </script>	
-        </section>
-        <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+      	  </script>
+      </section>
+
+      <section data-markdown data-transition="none">
+	   	    <script type="text/template">
+##Réseau militaire
 ###Le principe
 <img src="../images/armee3.png">
-            </script>	
-        </section>
-        <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+      	  </script>
+      </section>
+
+      <section data-markdown data-transition="none">
+	   	    <script type="text/template">
+##Réseau militaire
 ###Le principe
 <img src="../images/armee4.png">
-            </script>	
-        </section>
-        <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+      	  </script>
+      </section>
+
+      <section data-markdown data-transition="none">
+	   	    <script type="text/template">
+##Réseau militaire
 ###Les risques<!-- .element: class="fragment" data-fragment-index="1" -->
 - Interception des communications de part et d'autre du trou de ver<!-- .element: class="fragment" data-fragment-index="2" -->
 - Communications coupées autour des extrémités du trou de verre<!-- .element: class="fragment" data-fragment-index="3" -->
 - Exemple : trou de ver de longueur 2n+1 => les noeuds dans un rayon n autour des extrémités du trou de vers ne peuvent plus communiquer entre eux<!-- .element: class="fragment" data-fragment-index="4" -->
-            </script>
-        </section>
-        <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+<<<<<<< HEAD
+          </script>
+      </section>
+
+      <section data-markdown data-transition="none">
+   	      <script type="text/template">
+##Réseau militaire
 ###Les adversaires<!-- .element: class="fragment" data-fragment-index="1" -->
 - L'armée adverse dans le cadre d'une guerre<!-- .element: class="fragment" data-fragment-index="2" -->
 - Résistants dans le cadre d'une occupation militaire<!-- .element: class="fragment" data-fragment-index="3" -->
 - Toute organisation extérieure au conflit (gouvernement, association...) mais qui a des intérêts sur place (économiques,  idéologiques...)<!-- .element: class="fragment" data-fragment-index="4" -->
-            </script>
-        </section>
-        <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+		      </script>
+	     </section>
+
+       <section data-markdown data-transition="none">
+	   	    <script type="text/template">
+##Réseau militaire
 ###Les enjeux<!-- .element: class="fragment" data-fragment-index="1" -->
 - Sécurité humaine : pertes, blessés, captures<!-- .element: class="fragment" data-fragment-index="2" -->
 - Enjeux politiques : bouleversement de la situation géopolitque de la zone en fonction du camp attaqué<!-- .element: class="fragment" data-fragment-index="3" -->
 - Enjeux économiques : les opérations militaires sont souvent liées au contrôle de ressources (pétrole, gaz, etc)<!-- .element: class="fragment" data-fragment-index="4" -->
-            </script>
-        </section>
+		      </script>
+       </section>
+
         <section data-markdown data-transition="none">
-            <script type="text/template">
-##II-1 Réseau militaire
+	   	      <script type="text/template">
+##Réseau militaire
 ###Des exemples de motivation criminologique<!-- .element: class="fragment" data-fragment-index="1" -->
 - Empêcher les soldats de l'armée adverse de communiquer entre eux pour les prendre en embuscade<!-- .element: class="fragment" data-fragment-index="2" -->
 - Intercepter les communications de l'armée adverse pour prévoir leurs prochains mouvement<!-- .element: class="fragment" data-fragment-index="3" -->
 - Pour un acteur extérieur au conflit, intercepter les communications d'une armée et les revendre à son adversaire<!-- .element: class="fragment" data-fragment-index="4" -->
             </script>
         </section>
+
         <section data-markdown>
-            #Deuxième exemple 
-            #les réseaux ad hoc mobiles 
-        </section>
-        <section data-markdown>
-            ##les réseaux ad hoc mobiles 
-            ###Le principe
+            #Deuxième exemple
+##les réseaux ad hoc mobiles
         </section>
 
         <section data-markdown>
             ##les réseaux ad hoc mobiles
-            ###Les risques
-            - Des wormholes "voulus" pour interconnecter les réseaux ad hoc
-            - Des accès à Internet proposés et contrôlés par certains noeuds du réseau
+###Le principe
         </section>
-        <section data-markdown>
-            ##les réseaux ad hocs mobiles
-            ###Les adversaires
-            - Votre voisin...
-            - L'enfant adolescent de votre voisin avec le logiciel adapté...
-        </section>
+
         <section data-markdown>
             ##les réseaux ad hoc mobiles
-            ###Les enjeux
-            - Sociétaux : Eventuels remplaçants des réseaux 3G
-            - Economiques : Vols d'informations personnelles ou professionnelles
+###Les risques
+- Des wormholes "voulus" pour interconnecter les réseaux ad hoc
+- Des accès à Internet proposés et contrôlés par certains noeuds du réseau
         </section>
+
+        <section data-markdown>
+            ##les réseaux ad hocs mobiles
+###Les adversaires
+- Votre voisin...
+- L'enfant adolescent de votre voisin avec le logiciel adapté...
+        </section>
+
+        <section data-markdown>
+            ##les réseaux ad hoc mobiles
+###Les enjeux
+- Sociétaux : Eventuels remplaçants des réseaux 3G
+- Economiques : Vols d'informations personnelles ou professionnelles
+        </section>
+
         <section data-background="http://i.giphy.com/s93SsWBGdIhGw.gif">
             <h2>WormHole!</h2>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-##Biblio
 
-- MANET : History,Challenges And Applications, Ankur O. Bang, Prabhakar L.Ramteke (IJAIEM)
-            </script>
         </section>
-    </div>
-</div>
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
-<script>
 
-// Full list of configuration options available at:
-// https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-controls: true,
-progress: true,
-history: true,
-center: true,
-transition: 'slide', // none/fade/slide/convex/concave/zoom
+            <section data-markdown>
+                <script type="text/template">
+                  ##Critique des packets leashes
+- Geographiques <!-- .element: class="fragment" data-fragment-index="2" -->
+  - GPS sur chaque node
+  - Horloges _relativement_ synchro
 
-// Optional reveal.js plugins
-dependencies: [
-{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-{ src: 'plugin/zoom-js/zoom.js', async: true },
-{ src: 'plugin/notes/notes.js', async: true }
-]
-});
-</script>
+
+***Faisable mais pas très réaliste*** <!-- .element: class="fragment highlight-red" data-fragment-index="3" -->
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                  ##Critique des packets leashes
+- Temporels <!-- .element: class="fragment" data-fragment-index="2" -->
+  - Horloge **vraiment** synchro (~µsec)
+  - Couches réseau/crypto comme 802.11 ou RSA (+10ms)
+  - Plus rapide que la lumière ?!
+
+
+***Faisable mais pas très réaliste*** <!-- .element: class="fragment highlight-red" data-fragment-index="3" -->
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                  ##Biblio
+
+MANET : History,Challenges And Applications, Ankur O. Bang, Prabhakar L.Ramteke (IJAIEM)
+
+Wormhole Attacks in Wireless Networks Yih-Chun Hu, Member, IEEE, Adrian Perrig, Member, IEEE, and David B. Johnson, Member, IEEE
+                </script>
+            </section>
+
+      </div>
+        </div>
+	   <script src="lib/js/head.min.js"></script>
+	   <script src="js/reveal.js"></script>
+       <script>
+
+             // Full list of configuration options available at:
+             // https://github.com/hakimel/reveal.js#configuration
+	     Reveal.initialize({
+	     controls: true,
+	     progress: true,
+       slideNumber: true,
+             history: true,
+             center: true,
+	     transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+      </script>
 </body>
 </html>
