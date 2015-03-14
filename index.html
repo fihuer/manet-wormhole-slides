@@ -287,7 +287,23 @@ Les habitants des grandes villes contribuent aujourdhui a un reseau adhoc partag
 <h2>WormHole!</h2>
 </section>
  
+    <section data-markdown>
+        <script type="text/template">
+##Le protocole TIK
+- Besoin d'authentifier le temporal leash<!-- .element: class="fragment" data-fragment-index="1" -->
+<li>Encryption symétrique : besoin de O(n<sup>2</sup>) clés</li><!-- .element: class="fragment" data-fragment-index="2" -->
+- Signatures : coût trop élevé (10ms pour RSA 1024 bits)<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>
 
+    <section data-markdown>
+        <script type="text/template">
+##La sécurité du protocole
+- Requiert n clés publiques uniquement et coût <!-- .element: class="fragment" data-fragment-index="1" -->
+- Les leashes peuvent prévenir une attaque wormhole si tous les noeuds suivent le protocole<!-- .element: class="fragment" data-fragment-index="2" -->
+- Ne protège pas contre un émetteur qui forgerait un faux timestamp<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>
             <section data-markdown>
                 <script type="text/template">
                   ##Critique des packets leashes
@@ -325,6 +341,14 @@ Wormhole Attacks in Wireless Networks Yih-Chun Hu, Member, IEEE, Adrian Perrig, 
 
       </div>
         </div>
+	
+
+
+	  
+	  
+	
+	     </div>
+           </div>
 	   <script src="lib/js/head.min.js"></script>
 	   <script src="js/reveal.js"></script>
        <script>
