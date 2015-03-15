@@ -314,6 +314,33 @@ Les habitants des grandes villes contribuent aujourdhui a un reseau adhoc partag
       
     <section data-markdown>
         <script type="text/template">
+##Le packet leash
+- Infomation ajoutée à un paquet<!-- .element: class="fragment" data-fragment-index="1" -->
+- Permet restreindre la distance maximale de transmission du paquet<!-- .element: class="fragment" data-fragment-index="2" -->
+- Deux types : géographique et temporel<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>  
+    
+        <section data-markdown>
+        <script type="text/template">
+##Le packet leash géographique
+- L'expéditeur inclut dans le paquet la date d'envoi ts et sa position ps<!-- .element: class="fragment" data-fragment-index="1" -->
+- Le receveur compare à la date de réception tr et à sa propore position pr. Connaissant la vitesse de transmission maximale sur le réseau, il peut en déduire si le paquet a voyagé trop loin<!-- .element: class="fragment" data-fragment-index="2" -->
+- Prérequis : les noeuds connaissent leur propre position et sont temporellement synchronisés<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>
+    
+    <section data-markdown>
+        <script type="text/template">
+##Le packet leash temporel
+- L'expéditeur inclut dans le paquet une date d'expiration basée sur la distance maximale autorisée et la vitesse de la lumière<!-- .element: class="fragment" data-fragment-index="1" -->
+- Le receveur refuse tout paquet après sa date d'expiration<!-- .element: class="fragment" data-fragment-index="2" -->
+- Prérequis : synchronisation temporelle entre les noeuds de l'ordre de la microseconde !<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>  
+      
+    <section data-markdown>
+        <script type="text/template">
 ##Le protocole TIK
 - Besoin d'authentifier le temporal leash<!-- .element: class="fragment" data-fragment-index="1" -->
 <li>Encryption symétrique : besoin de O(n<sup>2</sup>) clés</li><!-- .element: class="fragment" data-fragment-index="2" -->
