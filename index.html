@@ -301,6 +301,7 @@ Les habitants des grandes villes contribuent aujourdhui a un reseau adhoc partag
 - Economique : Vols d'informations professionnelles<!-- .element: class="fragment" data-fragment-index="4" -->
 - Eventuels remplaçants des réseaux 3G<!-- .element: class="fragment" data-fragment-index="5" -->
             </script>
+         </section>
 
 	<!--III Solution proposée-->
       <section data-markdown>
@@ -321,8 +322,8 @@ Les habitants des grandes villes contribuent aujourdhui a un reseau adhoc partag
         <section data-markdown>
         <script type="text/template">
 ##Le packet leash géographique
-- L'expéditeur inclut dans le paquet la date d'envoi ts et sa position ps<!-- .element: class="fragment" data-fragment-index="1" -->
-- Le receveur compare à la date de réception tr et à sa propore position pr. Connaissant la vitesse de transmission maximale sur le réseau, il peut en déduire si le paquet a voyagé trop loin<!-- .element: class="fragment" data-fragment-index="2" -->
+- L'expéditeur inclut dans le paquet la date d'envoi et sa position <!-- .element: class="fragment" data-fragment-index="1" -->
+- Le receveur compare à sa propre position et prend en compte le déplacement maximal des noeuds pendant le temps de transmission. Il peut en déduire si le paquet a voyagé trop loin<!-- .element: class="fragment" data-fragment-index="2" -->
 - Prérequis : les noeuds connaissent leur propre position et sont temporellement synchronisés<!-- .element: class="fragment" data-fragment-index="3" -->
         </script>
     </section>
