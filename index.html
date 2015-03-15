@@ -48,6 +48,25 @@ document.getElementsByTagName('head')[0].appendChild(link);
 		    </p>
       </section>
 
+	  <section data-markdown>
+          <script type="text/template">
+        ##Plan
+<!-- .element: class="fragment" data-fragment-index="1" -->I Contexte et définitions
+
+<!-- .element: class="fragment" data-fragment-index="2" -->II Cas d'application et analyse
+
+<!-- .element: class="fragment" data-fragment-index="3" -->III Solution proposée
+
+          </script>
+      </section>
+
+	  <!--I Contexte et définitions-->
+      <section data-markdown>
+      	 <script type="text/template">
+#I Contexte et définitions
+      	 </script>
+      </section>
+      
 		  <section>
 		      <h1>Un réseau comme on les connait</h1>
           <img class="fragment" src="../images/infNet.png">
@@ -115,7 +134,7 @@ C'est lorsque des noeuds "téléportent" des paquets d'un point à un autre du r
 
       <section data-markdown>
         <script type="text/template">
-        ###ça fait pas de mal, non ?
+        ###ça fait pas de mal, si ?
 <!-- .element: class="fragment" data-fragment-index="1" -->Le WormHole forward les paquets de contrôle
 
 <!-- .element: class="fragment" data-fragment-index="2" -->Le WormHole ~~forward~~ écoute les paquets de données
@@ -147,7 +166,7 @@ C'est lorsque des noeuds "téléportent" des paquets d'un point à un autre du r
       <!--II Cas d'application et analyse-->
       <section data-markdown>
       	 <script type="text/template">
-#Cas d'application et analyse
+#II Cas d'application et analyse
       	 </script>
       </section>
       <!--II-1 Réseau militaire-->
@@ -282,11 +301,41 @@ Les habitants des grandes villes contribuent aujourdhui a un reseau adhoc partag
 - Economique : Vols d'informations professionnelles<!-- .element: class="fragment" data-fragment-index="4" -->
 - Eventuels remplaçants des réseaux 3G<!-- .element: class="fragment" data-fragment-index="5" -->
             </script>
-</section>
-<section data-background="http://i.giphy.com/s93SsWBGdIhGw.gif">
-<h2>WormHole!</h2>
-</section>
 
+	<!--III Solution proposée-->
+      <section data-markdown>
+      	 <script type="text/template">
+#III Solution proposée
+      	 </script>
+      </section>
+      
+    <section data-markdown>
+        <script type="text/template">
+##Le packet leash
+- Infomation ajoutée à un paquet<!-- .element: class="fragment" data-fragment-index="1" -->
+- Permet restreindre la distance maximale de transmission du paquet<!-- .element: class="fragment" data-fragment-index="2" -->
+- Deux types : géographique et temporel<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>  
+    
+        <section data-markdown>
+        <script type="text/template">
+##Le packet leash géographique
+- L'expéditeur inclut dans le paquet la date d'envoi ts et sa position ps<!-- .element: class="fragment" data-fragment-index="1" -->
+- Le receveur compare à la date de réception tr et à sa propore position pr. Connaissant la vitesse de transmission maximale sur le réseau, il peut en déduire si le paquet a voyagé trop loin<!-- .element: class="fragment" data-fragment-index="2" -->
+- Prérequis : les noeuds connaissent leur propre position et sont temporellement synchronisés<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>
+    
+    <section data-markdown>
+        <script type="text/template">
+##Le packet leash temporel
+- L'expéditeur inclut dans le paquet une date d'expiration basée sur la distance maximale autorisée et la vitesse de la lumière<!-- .element: class="fragment" data-fragment-index="1" -->
+- Le receveur refuse tout paquet après sa date d'expiration<!-- .element: class="fragment" data-fragment-index="2" -->
+- Prérequis : synchronisation temporelle entre les noeuds de l'ordre de la microseconde !<!-- .element: class="fragment" data-fragment-index="3" -->
+        </script>
+    </section>  
+      
     <section data-markdown>
         <script type="text/template">
 ##Le protocole TIK
